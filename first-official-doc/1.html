@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<div>{{message}}</div>
+		<div>
+			<span>{{angry}}</span>
+			<span>{{happy}}</span>
+			<span>{{array}}</span>
+			<span>{{object}}</span>
+		</div>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	var app=new Vue({
+		el:'#app',
+		data: {
+			message: '哈哈哈',
+			angry: '生气',
+			happy: '高兴',
+			array: ['1','2'],
+			object: {'test':'123'}
+		}
+	})
+</script>
+</html>

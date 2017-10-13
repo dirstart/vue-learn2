@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<button>test-button,check and flag is change.</button>
+		<p v-if="flag">Now flag is true.</p>
+	</div>
+</body>
+<script type="text/javascript">
+	let app = new Vue({
+		el: '#app',
+		data: {
+			flag: true
+		}
+	});
+
+	let oBtn = document.getElementsByTagName("button")[0];
+	oBtn.onclick = () =>{
+		app.flag = !app.flag;
+	}
+
+</script>
+</html>

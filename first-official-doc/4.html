@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<p>""之内，统统解析为字符串</p>
+	<button id="btn">点击我增加数组的数量</button>
+	<div id="app">
+		<ul>
+			<li v-for = "item in array">{{item}}</li>
+		</ul>
+		<ul>
+			<li v-for = "item in array2">{{item.id}} {{item.name}}</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	let app = new Vue({
+		el: '#app',
+		data: {
+			array: ['a','b','c'],
+			array2: [{
+				"id": 1,
+				"name": 'Rucy'
+			},{
+				"id": 2,
+				"name":  false
+			},{
+				"id": 3,
+				"name": true
+			},{
+				"id": 4,
+				"name": 'false'
+			},{
+				"id": 5,
+				"name": 'true'
+			}]
+		}
+	})
+
+	let oBtn = document.getElementById("btn");
+	let id = 6;
+	oBtn.onclick = () =>{
+		app.array2.push({"id":id,"name":'hh'});
+		id++;
+	}
+</script>
+</html>

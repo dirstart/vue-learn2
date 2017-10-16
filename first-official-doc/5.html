@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<p> {{message}} </p>
+		<p> {{message2}} </p>
+		<button v-on:click = "reverseMessage">逆转消息</button>
+	</div>
+</body>
+<script type="text/javascript">
+	let app = new Vue({
+		el: '#app',
+		data: {
+			message: '上海自来水来自海上',
+			message2: '翻转信息'
+		},
+		methods: {
+			reverseMessage: function () {
+				this.message = this.message.split('').reverse().join('');
+				this.message2 = this.message2.split('').reverse().join('');
+			}
+		}
+	})
+</script>
+</html>

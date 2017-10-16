@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<p>
+			{{message}}
+		</p>
+		<input type="text"  v-bind:placeholder="message" >
+		<input type="text" placeholder="message" >
+		<input type="text" v-model="message">
+		<button v-on:click="reverse">策反</button>
+	</div>
+</body>
+<script type="text/javascript">
+let app = new Vue({
+	el: '#app',
+	data: {
+		message: 'Hello,Vue'
+	},
+	methods: {
+		reverse: function () {
+			this.message = this.message.split('').reverse().join('');
+		}
+	}
+})
+</script>
+</html>

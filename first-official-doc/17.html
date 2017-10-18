@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="counter+=1">增加1</button>
+		<p>这个按钮被点击了{{counter}} 次。</p>
+		<button v-on:click="greet">点击我触发事件</button>
+		<p>{{message}}</p>
+		<button v-on:click="say('hi')">Say hi!</button>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	let app=new Vue({
+		el:'#app',
+		data: {
+			counter:0,
+			message:'Default'
+		},
+		methods:{
+			greet:function(event){
+				this.message='Hello,your click me!';
+				console.log(event);
+			},
+			say:function(str){
+				alert(str);
+			}
+		}
+	})
+</script>
+</html>

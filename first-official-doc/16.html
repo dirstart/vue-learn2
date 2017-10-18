@@ -7,9 +7,40 @@
 </head>
 <body>
 	<div id="app">
+		<ul>
+			<li v-for="(item,index) of array" :key="index">{{item.name}} - {{index}} -{{item.id}}</li>
+		</ul>
+		<ul>
+			<li v-for="value in array2">{{value}}</li>
+		</ul>
+		<ul>
+			<li v-for="(value,key) in array2">{{key}}-{{value}}</li>
+		</ul>
+		<ul>
+			<li v-for="(value,key,index) in array2">{{index}}-{{key}}-{{value}}</li>
+		</ul>
 	</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript">
+	let app=new Vue({
+		el:'#app',
+		data:{
+			array:[{
+				name:'水箭龟',
+				id:'12'
+			},{
+				name:'妙蛙花',
+				id:'23'
+			},{
+				name:'代欧奇西斯',
+				id:'98'
+			}],
+			array2:{
+				name:'神奇宝贝',
+				category:'动漫'
+			}
+		}
+	})
 </script>
 </html>

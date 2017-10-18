@@ -10,5 +10,22 @@
 	</div>
 </body>
 <script type="text/javascript">
+	let data={a:1}
+	let vm=new Vue({
+		data:data,
+		created:function(){
+			console.log("第一次的render?");
+		},
+		created:function(){
+			console.log("出现两个会怎么样");
+			console.log(this.a);    // 1
+			console.log(this.data); // undefined
+		},
+		created:()=>{
+			console.log("出现了三个并用上箭头函数?")
+			console.log(this); // window
+			console.log(this.a); // undefined
+		}
+	})
 </script>
 </html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<p>Ask your question: <input type="text" v-model="question" name=""></p>
+		<p> {{ answer }} </p>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+<script type="text/javascript">
+	let app=new Vue({
+		el:'#app',
+		data: {
+			question: '',
+			answer:'Default Answer.'
+		},
+		watch: {
+			// 当question发生改变，此处开始运行
+			question:function(data){
+				this.answer='Waiting for you to stop typing...'
+				this.getAnswer();
+			}
+		},
+		methods: {
+			// _.debounce  通过Lodash限制操作频率的函数
+			getAnswer: _.debounce(function(){
+				if(this.question.indexOf('?') === -1){
+					this.answer = '问题应该要有一个问号'
+					return ;
+				}
+				this.answer='我正在思考怎么回答你'
+				var vm = this;
+				axios.get('https://yesno.wtf/api') // vue的异步插件  axios
+					.then(function(res){
+						vm.answer=_.capitalize(res.data.answer)
+					})
+					.catch(function(error){
+						vm.answer="服务器端出现了错误"+ error
+					})
+			},500)
+		}
+	})
+</script>
+</html>

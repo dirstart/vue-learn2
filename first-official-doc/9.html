@@ -7,8 +7,32 @@
 </head>
 <body>
 	<div id="app">
+		<p>original message: " {{message}} "</p>
+		<p>computed reverse message:" {{reversedMessage}} "</p>
+		<p> {{time}} </p>
+		<p v-on:click="timeChange"> {{nowtime}} </p>
 	</div>
 </body>
 <script type="text/javascript">
+	let app=new Vue({
+		el:'#app',
+		data:{
+			message:'Hello',
+			nowtime:'暂无'
+		},
+		methods:{
+			timeChange:function(){
+				this.nowtime=Date.now();
+			}
+		},
+		computed:{
+			reversedMessage:function(){
+				return this.message.split('').reverse().join('');
+			},
+			time:function(){
+				return Date.now();
+			}
+		}
+	})
 </script>
 </html>

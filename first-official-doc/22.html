@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<select name="" id="" v-model="selected">
+			<option v-for="item in options" v-bind:value="item.value">
+				{{item.text}}
+			</option>
+		</select>
+		<span>Selected: {{selected}} </span>
+		<br>
+		<input type="radio" v-model="radioPick" value="a" name="">
+		<span>radio的选中情况： {{radioPick}}</span>
+		<br>
+		<input type="checkbox" v-model="checkboxPick" value="b">
+		<span>checkbox的选中情况：{{checkboxPick}} </span>
+		<br>
+<select name="" v-model="selectPick" id="">
+<option disabled="" value="">我不可选中</option>
+<option value="test">123</option>
+</select>
+<span>select的选中情况： {{selectPick}} </span>
+
+<!-- <select name="" id="" v-model="selectPick">
+<option value="" disabled="">请选择</option>
+<option value="123">ABC</option>
+</select>
+<span>SHOW: {{selectPick}}</span> -->
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	let app=new Vue({
+		el:'#app',
+		data:{
+			selected:'A',
+			checkboxPick:'',
+			radioPick:'',
+			selectPick:'',
+			options:[{
+				text:'One',
+				value:'A'
+			},{
+				text:'Two',
+				value:'B'
+			},{
+				text:'Three',
+				value:'C'
+			}]
+		}
+	})
+</script>
+</html>

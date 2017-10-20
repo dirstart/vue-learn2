@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<input type="radio" v-model="pick" v-bind:value="a">
+		<span>{{pick}}</span>
+		<br>
+		<select name="" v-model="selected" id="">
+			<option v-bind:value="{number:123}">123</option>
+		</select>
+		<span>now Pick: {{selected}} </span>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+let app=new Vue({
+	el:'#app',
+	data:{
+		pick:'',
+		a:12,
+		selected:''
+	}
+})
+</script>
+</html>

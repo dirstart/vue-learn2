@@ -7,9 +7,24 @@
 </head>
 <body>
 	<div id="app">
+		<input type="checkbox" id="jack" value="jack" v-model="checkedNames">
+		<label for="jack">jack</label>
+		<input type="checkbox" id="john" value="john" v-model="checkedNames">
+		<label for="john">john</label>
+		<input type="checkbox" id="mike" value="mike" v-model="checkedNames">
+		<label for="mike">mike</label>
+		<br>
+		<span>选中的名字有：{{checkedNames}}</span>
+		<input type="text" v-model="checkedNames">
 	</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript">
+	let app=new Vue({
+		el:'#app',
+		data:{
+			checkedNames:[]
+		}
+	})
 </script>
 </html>

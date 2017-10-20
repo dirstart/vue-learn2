@@ -3,13 +3,48 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
 </head>
 <body>
 	<div id="app">
+		<span>Multiline message is:(white-space:normal-空白会被浏览器忽略)</span>
+		<p style="white-space: normal;">
+			{{message}}
+		</p>
+		<span>Multiline message is:(white-space:pre-空白会被浏览器保留)</span>
+		<p style="white-space: pre;">
+			{{message}}
+		</p>
+		<span>Multiline message is:(white-space:nowrap-文本不会换行，直到遇到<br>为止)</span>
+		<p style="white-space: nowrap;">
+			{{message}}
+		</p>
+		<span>Multiline message is:(white-space:pre-wrap-保留空白序列，正常换行)</span>
+		<p style="white-space: pre-wrap;">
+			{{message}}
+		</p>
+		<span>Multiline message is:(white-space:pre-line-合并空白符序列，正常换行)</span>
+		<p style="white-space: pre-line;">
+			{{message}}
+		</p>
+		<textarea name="" v-model="message" placeholder="add Multiline" id=""></textarea>
+
+		<p>test for textarea</p>
+		<textarea name="" id="" cols="30" rows="10">{{message}}</textarea>
 	</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript">
+	let app=new Vue({
+		el:'#app',
+		data: {
+			message:''
+		}
+	})
 </script>
 </html>

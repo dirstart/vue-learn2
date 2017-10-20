@@ -12,6 +12,7 @@
 		<button v-on:click="greet">点击我触发事件</button>
 		<p>{{message}}</p>
 		<button v-on:click="say('hi')">Say hi!</button>
+		<button v-on:click.once="doThis">我的有效点击只有一次.</button>
 	</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -29,6 +30,9 @@
 			},
 			say:function(str){
 				alert(str);
+			},
+			doThis:function(){
+				alert("出现的第一次和最后一次!");
 			}
 		}
 	})

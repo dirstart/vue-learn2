@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<span><label for="">测试：</label><input type="text"></span>
+		<br>
+		<input type="radio" id="one" value="One" v-model="picked">
+		<label for="one">One</label>
+		<br>
+		<input type="radio" id="two" value="Two" v-model="picked">
+		<label for="two">Two</label>
+		<br>
+		<span> Picked: {{picked}} </span>
+		<br>
+		<span><input type="radio" v-model="picked2" value="B"><label for="">第一个</label></span>
+		<span><input type="radio" v-model="picked2" value="A"><label for="">第二个</label></span>
+		<br>
+		<span>Picked2: {{picked2}}</span>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	let app=new Vue({
+		el:'#app',
+		data:{
+			picked:'',
+			picked2:''
+		}
+	})
+</script>
+</html>

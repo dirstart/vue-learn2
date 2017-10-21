@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<child my-message="test"></child>
+		<child2 my-message-Test="test2"></child2>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	Vue.component('child',{
+		props:['my-message'],
+		template:'<span> {{myMessage}} </span>'
+	})
+	Vue.component('child2',{
+		props:['myMessageTest'],
+		template:'<span>{{myMessageTest}}</span>'
+	})
+	let app=new Vue({
+		el:'#app'
+	})
+</script>
+</html>

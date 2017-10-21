@@ -7,9 +7,33 @@
 </head>
 <body>
 	<div id="app">
+		<my-component></my-component>
+		<partly-component></partly-component>
+	</div>
+	<div id="app2">
+		<my-component></my-component>
+		<partly-component></partly-component>
 	</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript">
+	Vue.component('my-component',{
+		template: '<div>A component!</div>'
+	})
+	let Child={
+		template:'<div>我是局部组件!</div>'
+	}
+	let app=new Vue({
+		el:'#app',
+		data:{
+
+		},
+		components:{
+			'partly-component':Child
+		}
+	})
+	let app2=new Vue({
+		el:'#app2'
+	})
 </script>
 </html>

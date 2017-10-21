@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<my-component></my-component>
+		<my-component></my-component>
+		<my-component></my-component>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	var data={counter:0}
+	Vue.component('my-component',{
+		template:'<button v-on:click="counter++"> {{counter}} </button>',
+		data:function(){
+			// return data
+			// 上面的这句话是每个组件都返回同一个对象data？
+			return {
+				counter:0
+				// 这里是给每个子组件都返回一个counter吗？
+			}
+		}
+	})
+	let app=new Vue({
+		el:'#app'
+	})
+</script>
+</html>

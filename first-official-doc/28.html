@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<span>此处跟React中的{...settings}是一样的</span>
+		<br>
+		<br>
+		<todo-item v-bind="todo"></todo-item>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	let todo={
+		text:'Test Vue!',
+		id:'123'
+	}
+	Vue.component('todoItem',{
+		props:['text','id'],
+		template:'<div><span>{{id}} :</span><span>{{text}}</span></div>'
+	})
+	let app=new Vue({
+		el:'#app'
+	})
+</script>
+</html>

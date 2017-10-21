@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<span>Vue的props验证，感觉就像是React中的propTypes，14之前还在里面的，后面也被React分出去了.</span>
+		<br>
+		<br>
+		<example id="123" text="hello"></example>
+		<example ></example>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	Vue.component('example',{
+		template:'<span>{{text}}</span>',
+		props:{
+			id:Number,
+			text:{
+				type:String,
+				default:function(){
+					return 'hello,I\'m default message ' 
+				}
+			}
+		}
+	})
+	let app=new Vue({
+		el:'#app'
+	})
+</script>
+</html>

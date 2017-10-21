@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<child message='Hello'></child>
+		<child v-bind:message="test"></child>
+		<input type="text" v-model="test2">
+		<span>互相绑定的message们(目前长度为: {{test2.length}}):</span>
+		<child v-bind:message="test2"></child>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	Vue.component('child',{
+		props:['message'],
+		template:'<span>{{message}}</span>'
+	})
+	let app=new Vue({
+		el:'#app',
+		data:{
+			test:'yeye',
+			test2:''
+		}
+	})
+</script>
+</html>

@@ -1,3 +1,7 @@
+#### 莫名其妙的问题，弄了一个小时
+> !!!!!!!!!!!!!!!!!!!!!!!!!   "no-unused-vars":0
+使用 `var app = new Vue({...}) `  报错,屏蔽了 eslint 里面的这个东西，总算好了
+
 # vue-todo
 
 > A Vue.js project

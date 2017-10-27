@@ -1,6 +1,6 @@
 <template>
   <div>
-    123
+    123 {{ msg }}
   </div>
 </template>
 
@@ -8,6 +8,9 @@
 export default {
   name: 'Hello',
   data () {
+    return {
+      msg: 'hhhhh'
+    }
   }
 }
 </script>

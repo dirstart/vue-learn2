@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#app{
+			margin: 50px auto;
+			width: 500px;
+			height: 500px;
+			background-color: #9CCACF;	
+		}
+		.searchBar{
+			margin: 0 auto;
+			position: relative;
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			background-color: #23239f;
+		}
+		.searchBar input{
+			margin-left: 100px;
+			width: 150px;
+			height: 25px;
+			border: 0;
+			text-indent: 5px;
+			vertical-align: middle;
+			background-color: #888;
+			color: #eee;
+		}
+		.searchBar button{
+			width: 50px;
+			height: 25px;
+			border: 0;
+			vertical-align: middle;
+			background-color: #6B6892;
+			color: #fff;
+		}
+		.com-header{
+			display: flex;
+			padding: 10px;
+		}
+		.com-header span{
+			flex: 1;
+			background-color: #AFB2CA;
+			border-right: 1px solid #777;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+		}
+		.com-header span:last-child{
+			border-right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="searchBar">
+			<input type="text" placeholder="请输入搜索关键字">
+			<button>搜索</button>
+		</div>
+		<shop-header :title="dataTitle"></shop-header>
+	</div>
+
+	<template id="comHeader">
+		<div class="com-header">
+			<span v-for="item in title">{{item}}</span>		
+		</div>
+		<ul>
+			<li></li>
+		</ul>
+	</template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	Vue.component('shop-header', {
+		template: '#comHeader',
+		props: {
+			data: Array,
+			title: Array,
+			filterKey: String
+		}
+	})
+
+	let demo = new Vue({
+		el: '#app',
+		data: {
+			searchKey: '',
+			dataTitle: ['id', 'name', 'score'],
+			dataArray: [{
+				id: 012,
+				name: '英语四级',
+				score: 300
+			},{
+				id: 019,
+				name: '国考',
+				score: 500
+			},{
+				id: 088,
+				name: '技术考试',
+				score: 600
+			}]
+		}
+	})
+</script>
+</html>

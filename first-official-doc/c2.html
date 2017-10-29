@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app1">
+		<my-component></my-component>
+	</div>
+	<div id="app2">
+		<my-component></my-component>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	let myComponent = Vue.extend({
+		template: '<div>This is a component!</div>'
+	})
+	Vue.component('my-component', myComponent)
+	let app1 = new Vue({
+		el: '#app1'
+	})
+	let app2 = new Vue({
+		el: '#app2'
+	})
+</script>
+</html>

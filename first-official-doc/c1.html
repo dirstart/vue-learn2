@@ -7,9 +7,42 @@
 </head>
 <body>
 	<div id="app">
+		<my-component test='123' v-bind:my-name="name" v-bind:my-age="age"></my-component>
 	</div>
+	<template id="myComponent">
+		<table>
+			<tr>
+				<th>子组件数据</th>
+			</tr>
+			<tr>
+				<th>我的名字</th>
+				<th>{{myName}}</th>
+			</tr>
+			<tr>
+				<th>我的年龄</th>
+				<th>{{myAge}}</th>
+			</tr>
+			<tr>
+				<th>测试</th>
+				<th>{{test}}</th>
+			</tr>
+		</table>
+	</template>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript">
+	let vm = new Vue({
+		el: '#app',
+		data: {
+			name: 'keepfool',
+			age: 21
+		},
+		components: {
+			'my-component': {
+				template: '#myComponent',
+				props: ['myName', 'myAge', 'test']
+			}
+		}
+	})
 </script>
 </html>

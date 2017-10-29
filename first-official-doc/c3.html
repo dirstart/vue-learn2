@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		table{
+			border-bottom: 1px solid #f00;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<table>
+			<tr>
+				<th colspan="2">父组件</th>
+			</tr>
+			<tr>
+				<th>name</th>
+				<th> {{name}} </th>
+				<th><input type="text" v-model="name"></th>
+			</tr>
+			<tr>
+				<td>age</td>
+				<td> {{age}} </td>
+				<td><input type="text" v-model="age"></td>
+			</tr>
+		</table>
+		<my-component v-bind:my-name.sync="name" v-bind:my-age.sync="age"></my-component>
+	</div>
+
+	<template id="myComponent">
+		<table>
+			<tr>
+				<th>子组件数据</th>
+			</tr>
+			<tr>
+				<td>子组件的name</td>
+				<td>{{myName}}</td>
+				<td><input type="text" v-model="myName"></td>
+			</tr>
+			<tr>
+				<td>子组件的age</td>
+				<td>{{myAge}}</td>
+				<td><input type="text" v-model="myAge"></td>
+			</tr>
+		</table>
+	</template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	let vm = new Vue({
+		el: '#app',
+		data: {
+			name: 'keep-fool',
+			age: 21
+		},
+		components: {
+			'my-component': {
+				template: '#myComponent',
+				props: ['myName', 'myAge']
+			}
+		}
+	})
+</script>
+</html>

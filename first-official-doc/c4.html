@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<parent-component></parent-component>
+		<child-component></child-component>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	let Child = Vue.extend({
+		template: '<p>This is a child component</p>'
+	})
+
+	let Parent = Vue.extend({
+		template: '<p>This is Parent compoennt</p>',
+		components: {
+			'child-component': Child
+		}
+	})
+
+	Vue.component('parent-component', Parent)
+
+	new Vue({
+		el: '#app'
+	})
+</script>
+</html>

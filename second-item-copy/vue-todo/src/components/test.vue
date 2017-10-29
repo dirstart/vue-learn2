@@ -9,13 +9,15 @@
 
 <script>
 	export default {
-		data: {
-			string: '测试vue',
-			count: 0
+		data: function () {
+			return {
+				string: '测试vue',
+				count: 0
+			}
 		},
 		methods: {
-			Add () {
-				console.log('a')
+			Add: function () {
+				alert('a')
 				this.count++
 			}
 		}

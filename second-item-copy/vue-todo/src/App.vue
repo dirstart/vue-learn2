@@ -10,7 +10,10 @@
       </div>
     </nav>
     <div class="container">
-      <div class="col-sm-3" :style="{backgroundColor:'#888',height:'200px'}"><strong :style="{color:'#fff'}">3</strong></div>
+      <div class="col-sm-3" :style="{backgroundColor:'#888'}">
+        <!-- <sidebar></sidebar> -->
+        <test></test>
+      </div>
       <div class="col-sm-9" >
         <router-view></router-view>
 <!--     :style="{backgroundColor:'#666',color:'white',height:'200px'}"    -->      
@@ -20,8 +23,17 @@
 </template>
 
 <script>
+// import Sidebar from './components/Sidebar.vue'
+// export default {
+//   components: {
+//     'sidebar': Sidebar
+//   }
+// }
+import Test from './components/test.vue'
 export default {
-  name: 'app'
+  components: {
+    'test': Test
+  }
 }
 </script>
 

@@ -90,7 +90,7 @@
 			<input type="text" placeholder="请输入搜索关键字" v-model="searchKey" />
 			<button>搜索</button>
 		</div>
-		<shop-header :title="dataTitle" :detail="dataArray" :filter-key="searchKey"></shop-header>
+		<shop-header :title="dataTitle" :detail="testFilter" :filter-key="searchKey"></shop-header>
 	</div>
 
 	<template id="comHeader">
@@ -133,15 +133,15 @@
 			dataArray: [{
 				id: 'kg',
 				name: '英语四级',
-				score: 300
+				score: '300'
 			},{
 				id: 'sec',
 				name: '国考',
-				score: 500
+				score: '500'
 			},{
 				id: 'zky',
 				name: '技术考试',
-				score: 600
+				score: '600'
 			}]
 		},
 		computed: {
@@ -149,9 +149,10 @@
 				let key = this.searchKey;
 				let array = this.dataArray;
 				return array.filter((item)=>{
-					console.log(item)
-					return true
-				})
+					return (item.id.indexOf(key) !== -1 || 
+						item.name.indexOf(key) !== -1 ||
+						item.score.indexOf(key) !== -1 )
+				});
 			}
 		}
 	})

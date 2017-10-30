@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,li,ol{
+			list-style: none;
+		}
+		#app{
+			margin: 50px auto;
+			width: 500px;
+			height: 500px;
+			background-color: #9CCACF;	
+		}
+		.searchBar{
+			margin: 0 auto;
+			text-align: center;
+			position: relative;
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			background-color: #089e8a;
+		}
+		.searchBar input{
+			width: 150px;
+			height: 25px;
+			border: 0;
+			text-indent: 5px;
+			vertical-align: middle;
+			background-color: #CADEEA;
+			color: #034;
+		}
+		.searchBar input::-webkit-input-placeholder{
+			color: #2A312D;
+		}
+		.searchBar button{
+			width: 50px;
+			height: 25px;
+			border: 0;
+			vertical-align: middle;
+			background-color: #CADEEA;
+			color: #089e8a;
+		}
+		.com-header,
+		.com-li{
+			display: flex;
+		}
+		.com-header{
+			padding: 10px;
+		}
+		.com-li{
+			padding-left: 10px;
+			padding-right: 10px;
+			padding-top: 3px;
+		}
+		.com-header span{
+			flex: 1;
+			background-color: #2885A4;
+			border-right: 1px solid #777;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+		}
+		.com-header span:last-child{
+			border-right: 0;
+		}
+		.com-li span{
+			flex: 1;
+			background-color: #2E8B81;
+			text-align: center;
+			border-right: 1px solid #089e8a;
+			line-height: 30px;
+			font-size: 12px;
+		}
+		.com-li span:hover{
+			background-color: #089e8a;
+			color: #eee;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="searchBar">
+			<input type="text" placeholder="请输入搜索关键字" v-model="searchQuery" />
+			<button>搜索</button>
+		</div>
+		<shop-header :title="dataTitle" :detail="dataArray" :filter-key="searchQuery"></shop-header>
+	</div>
+
+	<template id="comHeader">
+		<div id="comAll">
+			<div class="com-header">
+				<span v-for="item in title">{{item | capitialize}}</span>	
+			</div>
+			<div></div>
+			<ul class="com-ul">
+				<li class="com-li" v-for="obj in detail | filterBy filterKey">
+					<span v-for="suffix in title"> {{obj[suffix]}} </span>
+				</li>
+			</ul>
+		</div>
+	</template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	Vue.component('shop-header', {
+		template: '#comHeader',
+		props: {
+			detail: Array,
+			title: Array,
+			filterKey: String
+		}
+	})
+
+	let demo = new Vue({
+		el: '#app',
+		data: {
+			searchQuery: '',
+			dataTitle: ['id', 'name', 'score'],
+			dataArray: [{
+				id: 'akg',
+				name: '英语四级',
+				score: 300
+			},{
+				id: 'sec',
+				name: '国考',
+				score: 500
+			},{
+				id: 'zky',
+				name: '技术考试',
+				score: 600
+			}]
+		}
+	})
+</script>
+</html>

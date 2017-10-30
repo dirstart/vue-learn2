@@ -7,6 +7,28 @@
 #### 1.first-official-doc中的4
 > 如何v-for和v-if一起用
 
+#### 2.如果不用vue-cli自带的东西如何调试
+```
+<template id="comHeader">
+		<div class="com-header">
+			<span v-for="item in title">{{item}}</span>		
+		</div>
+		<ul>
+			<li>
+				<span v-for="item in data">{{item[id]}}</span>
+			</li>
+		</ul>
+	</template>
+```
+例如确定如上中的 `item in data` 是否被获取等问题。
+暂时替代
+```
+<shop-header :title="dataTitle" :data="dataArray"></shop-header>
+		<div>{{dataArray}}</div>
+```
+
+#### 3.代码中的`v-for` 命名问题，命名规范
+
 
 ### 麻烦的地方
 有些原生的ES6被麻烦化了

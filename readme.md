@@ -29,6 +29,9 @@
 
 #### 3.代码中的`v-for` 命名问题，命名规范
 
+#### 4.`Vue 2.0` 中过滤器已经被废弃，需要注意
+> http://blog.csdn.net/weiweismile123/article/details/70226319
+
 
 ### 麻烦的地方
 有些原生的ES6被麻烦化了

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<div id="app">
+		<p> {{message | sum}} </p>
+		<p> {{message | cal}} </p>
+		<input type="text" v-model="message">
+		<br>
+		<br>
+		<input type="text"  v-model="key" />
+		<button>搜索</button>
+		<ul>
+			<li v-for="item in SeniorFilter">
+				{{item}}
+			</li>
+		</ul>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+	Vue.filter('sum',function(value){ //全局方法 Vue.filter()
+		if(!value) return 0;
+		return parseInt(value) + 4;
+	})
+	let app = new Vue({
+		el: '#app',
+		data: {
+			message: 12,
+			array: [
+				'Air','ThinkPad','Apple','XiaoMi'
+			],
+			key: ''
+		},
+		filters: {
+			cal: function (value){
+				return value + 8
+			}
+		},
+		computed: {
+			SeniorFilter: function () {
+				let key = this.key;
+				let array = this.array;
+				return array.filter((item)=>{
+					return item.indexOf(key) != -1
+				})
+			}
+		}
+	})
+</script>
+</html>

@@ -143,6 +143,16 @@
 				name: '技术考试',
 				score: 600
 			}]
+		},
+		computed: {
+			testFilter: function () {
+				let key = this.searchKey;
+				let array = this.dataArray;
+				return array.filter((item)=>{
+					console.log(item)
+					return true
+				})
+			}
 		}
 	})
 </script>

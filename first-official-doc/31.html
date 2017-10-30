@@ -6,10 +6,37 @@
 
 </head>
 <body>
-	<div id="app">
+	<div id="app">	
+		<ul>
+		  <li v-for="product in products">
+		       {{ product.name | capitalize }} - {{ product.price | discount  }}
+		  </li>
+		</ul>
 	</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript">
+	Vue.filter( 'discount' , function(value) {
+	    return value  * .5 ;
+	});
+	Vue.filter('capitalize', function(value){
+		if(!value) return
+		value = value.toString()
+		return value.charAt(0).toUpperCase() + value.slice(1)
+	})
+	new Vue({
+	    el : '#app',
+	    data : {
+	          products : [
+	                {name: 'microphone', price: 25, category: 'electronics'},
+	                {name: 'laptop case', price: 15, category: 'accessories'},
+	                {name: 'screen cleaner', price: 17, category: 'accessories'},
+	                {name: 'laptop charger', price: 70, category: 'electronics'},
+	                {name: 'mouse', price: 40, category: 'electronics'},
+	                {name: 'earphones', price: 20, category: 'electronics'},
+	                {name: 'monitor', price: 120, category: 'electronics'}
+	          ]
+	    }
+	});
 </script>
 </html>

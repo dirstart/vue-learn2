@@ -9,11 +9,11 @@
 	</div>
 </template>
 
-<script type="text/javascript">
+<script>
 	export default {
 		computed: {
 			time () {
-				return 1
+				return this.$store.state.totalTime
 			}
 		}
 	}

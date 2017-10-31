@@ -10,31 +10,30 @@
       </div>
     </nav>
     <div class="container">
-      <div class="col-sm-3" :style="{backgroundColor:'#888'}">
-        <!-- <sidebar></sidebar> -->
-        <test></test>
+      <div class="col-sm-3">
+        <sidebar></sidebar>
+        <!-- <test></test> -->
       </div>
       <div class="col-sm-9" >
         <router-view></router-view>
-<!--     :style="{backgroundColor:'#666',color:'white',height:'200px'}"    -->      
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import Sidebar from './components/Sidebar.vue'
-// export default {
-//   components: {
-//     'sidebar': Sidebar
-//   }
-// }
-import Test from './components/test.vue'
+import Sidebar from './components/Sidebar.vue'
 export default {
   components: {
-    'test': Test
+    'sidebar': Sidebar
   }
 }
+// import Test from './components/test.vue'
+// export default {
+//   components: {
+//     'test': Test
+//   }
+// }
 </script>
 
 <style>

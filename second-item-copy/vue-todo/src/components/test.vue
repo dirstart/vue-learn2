@@ -17,7 +17,6 @@
 		},
 		methods: {
 			Add: function () {
-				alert('a')
 				this.count++
 			}
 		}

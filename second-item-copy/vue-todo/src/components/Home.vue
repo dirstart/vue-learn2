@@ -6,6 +6,5 @@
 				<router-link to="/time-entries">创建一个任务</router-link>
 			</strong>
 		</p>
-		<Test></Test>
 	</div>
 </template>

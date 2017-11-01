@@ -12,24 +12,30 @@ Vue.use(VueRouter)
 Vue.use(VueResource)
 
 const routes = [{
-	path: '/',
-	component: Home
+  path: '/',
+  component: Home
 }, {
-	path: '/home',
-	component: Home
+  path: '/home',
+  component: Home
 }, {
-	path: '/time-entries',
-	component: TimeEntries
+  path: '/time-entries',
+  component: TimeEntries,
+  children: [{
+    path: 'log-time',
+    // 懒加载
+    component: resolve => require(['./components/LogTime.vue'], resolve)
+    // component: resolve => require(['./components/test.vue'], resolve)
+  }]
 }]
 
 const router = new VueRouter({
-	routes
+  routes
 })
 
 let app = new Vue({
-	el: '#app',
-	router,
-	store,
-	template: '<App/>',
-	components: { App }
+  el: '#app',
+  router,
+  store,
+  template: '<App/>',
+  components: { App }
 })

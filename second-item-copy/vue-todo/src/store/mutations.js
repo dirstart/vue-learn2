@@ -7,5 +7,11 @@ export default {
   },
   [types.TEST_ADD] (state) {
     state.test++
+  },
+  [types.ADD_HOUR] (state, hour) {
+    state.hour += hour
+  },
+  [types.SAVE_PLAN] (state, plan) {
+    state.list.push(plan)
   }
 }

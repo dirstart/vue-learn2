@@ -13,7 +13,7 @@
   export default {
     computed: {
       time () {
-        return this.$store.state.totalTime
+        return this.$store.state.hour
       }
     }
   }

@@ -29,7 +29,7 @@
             <div class="col-sm-2 text-center time-block">
               <h3 class="list-group-item-text total-time">
                 <i class="glyphicon glyphicon-time"></i>
-                {{ plan.totalTime }}小时
+                {{ plan.hour }}小时
               </h3>
               <p class="label label-primary text-center">
                 <i class="glyphicon glyphicon-calendar"></i>

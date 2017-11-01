@@ -32,7 +32,7 @@ export default {
   data () {
     return {
       date: '',
-      hour: '',
+      hour: 0,
       comment: ''
     }
   },
@@ -41,7 +41,7 @@ export default {
       this.hour = parseInt(this.hour)
       const plan = {
         name: Math.random() * 3,
-        iamge: 'https://sfault-avatar.b0.upaiyun.com/888/223/888223038-5646dbc28d530_huge256',
+        avatar: 'https://sfault-avatar.b0.upaiyun.com/147/223/147223148-573297d0913c5_huge256',
         date: this.date,
         hour: this.hour,
         comment: this.comment

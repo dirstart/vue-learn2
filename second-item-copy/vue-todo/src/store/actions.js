@@ -7,5 +7,11 @@ export default {
   },
   testAdd ({ commit }) {
     commit(types.TEST_ADD)
+  },
+  addHour ({ commit }, hour) {
+    commit(types.ADD_HOUR, hour)
+  },
+  savePlan ({ commit }, plan) {
+    commit(types.SAVE_PLAN, plan)
   }
 }

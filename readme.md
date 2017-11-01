@@ -32,6 +32,8 @@
 #### 4.`Vue 2.0` 中过滤器已经被废弃，需要注意
 > http://blog.csdn.net/weiweismile123/article/details/70226319
 
+#### 5.为什么在组件中的 data 一定要用返回的方式
+
 
 ### 麻烦的地方
 有些原生的ES6被麻烦化了

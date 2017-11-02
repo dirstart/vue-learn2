@@ -6,6 +6,9 @@
     <div class="panel-body">
       <h1 class="text-center">{{time}}小时</h1>
     </div>
+    <router-link to="/test">跳转test1</router-link>
+    <router-link to="/test2">跳转test2</router-link>
+    <router-link to="/ele-ui">跳转到表格</router-link>
   </div>
 </template>
 

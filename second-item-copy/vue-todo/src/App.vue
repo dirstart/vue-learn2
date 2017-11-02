@@ -12,7 +12,6 @@
     <div class="container">
       <div class="col-sm-3">
         <sidebar></sidebar>
-        <!-- <test></test> -->
       </div>
       <div class="col-sm-9" >
         <router-view></router-view>

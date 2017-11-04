@@ -7,6 +7,9 @@
 
 #### 1.vue之前的dispatch和broadcast已经被废弃。
 
+#### 2.vue的created相当于react中的componentWillMount。也就是说此时是还没有render子组件的。不过它可以使用父组件。
+> created在当前组件之前，在当前组件的子组件之后。
+
 ### 出现的问题
 
 #### 1.first-official-doc中的4

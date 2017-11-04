@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  </style>
+</head>
+<body>
+  <div id="app">
+    <span>使用了自定义指令的dialog-modal.</span>
+    <br>
+    <span>测试created:  {{msg}} </span>
+    <hr>
+    <button @click="AA">测试在不在created中使用ref是否成功</button>
+    <span>因为在created中使用失败了，大概是还没有创建吧。</span>
+    <hr>
+    <dialog-modal ref="justone"></dialog-modal>
+  </div>
+  <template id="dialog-modal">
+    <div>
+      <span>123</span>
+      <span> {{show}} </span>
+      <hr>
+      <span>这是一个使用 v-show 的 Dialog.</span>
+      <button @click="show1">出现吧，dialog</button>
+      <div v-show="show">
+        <span>Dialog 的标题</span>
+        <button @click="hide1">关闭</button>
+        <p>Dialog 的信息</p>
+      </div>
+      <hr>
+      <span>这是一个利用props和class实现的Dialog</span>
+      <div>
+        
+      </div>
+    </div>
+  </template>
+</body>
+<script src="./vue.js"></script>
+<script type="text/javascript">
+Vue.component("dialog-modal",{
+  template:"#dialog-modal",
+  data(){
+    return {
+      show: true
+    }
+  },
+  methods:{
+    test(){
+      console.log("ref test");
+    },
+    hide1(){
+      this.show = false;
+    },
+    show1(){
+      this.show = true;
+    }
+  },
+  created(){
+    this.show = false
+  }
+})
+let app = new Vue({
+  el: "#app",
+  data: {
+    msg: ""
+  },
+  methods:{
+    AA(){
+      this.$refs.justone.test();
+      console.log(this.$refs.justone.show);
+      console.log(this.$refs);
+    }
+  },
+  created() {
+    console.log(this.$refs);
+  }
+})
+</script>
+</html>

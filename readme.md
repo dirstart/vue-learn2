@@ -38,6 +38,10 @@
 > !!!!!!!!!!!!!!!!!!!!!!!!!   "no-unused-vars":0
 使用 `var app = new Vue({...}) `  报错,屏蔽了 eslint 里面的这个东西，总算好了
 
+#### 7.vue在2.0中的broadcast已经废弃，现在如果要向子组件传值的话，需要使用this.ref。
+> 具体场景：在父组件点button，将父组件的input字符传给子组件。
+用法 ：child-componet ref="一个id名字" ,父组件 method:   this.$refs.id名字.子组件操作函数
+
 
 ### 麻烦的地方
 有些原生的ES6被麻烦化了

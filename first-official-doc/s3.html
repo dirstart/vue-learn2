@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div id="app">
+    <span>本体里面的filter是这样写的，问题在于子组件的computed很有问题！</span>
+    <br>
+    <label for="search">搜索:</label>
+    <input type="text" v-model="key">
+    <span> {{key}} </span>
+    <ul>
+      <li v-for="item in getFilter"> {{ item }} </li>
+    </ul>
+    <hr>
+    <child-component></child-component>
+  </div>
+  <template id="child">
+    <div> {{key}} </div>
+    <span>list</span>
+    <ul>
+    </ul>
+  </template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+
+  Vue.component('child-component',{
+    template: '#child',
+    data: function(){
+      return {
+        key:'haha',
+        list: '123s'
+      }
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data: {
+      key: "",
+      list: ['123','sfljslfj','sl;fjlsjdf','apple','first']
+    },
+    computed: {
+      getFilter: function() {
+        let key = this.key;
+        let list = this.list;
+        return list.filter((item) => {
+          return item.indexOf(key) !== -1;
+        })
+      }
+    }
+  })
+</script>
+</html>

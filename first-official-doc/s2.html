@@ -4,13 +4,58 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <style>
+    ul{
+      border: 1px solid #888;
+      height: 400px;
+    }
   </style>
 </head>
 <body>
   <div id="app">
+    <div class="parent-content">
+      <h2>我是父组件</h2>
+      <input type="text" v-model="msg">
+      <button @click="Add(msg)">传递事件给子组件</button>
+    </div>
+    <child-component ref="xxx"></child-component>
   </div>
+
+  <template id="child-component">
+    <div class="child-content">
+      <h2>我是子组件，下面是我被父组件传递的事件</h2>
+      <ul>
+        <li v-for="item in messages"> {{item}} </li>
+      </ul>
+    </div>
+  </template>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="./vue.js"></script>
 <script type="text/javascript">
+  Vue.component('child-component', {
+    template: '#child-component',
+    data: function(){
+      return {
+        messages: []
+      }
+    },
+    methods: {
+      Add(str) {
+        console.log(str);
+        console.log(this.messages);
+        this.messages.push(str);
+      }
+    }
+  })
+  let app = new Vue({
+    el: '#app',
+    data: {
+      msg: ""
+    },
+    methods: {
+      Add(str) {
+        this.$refs.xxx.Add(str);
+      }
+    }
+  })
 </script>
 </html>

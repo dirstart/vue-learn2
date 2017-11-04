@@ -2,6 +2,11 @@
 #### 起始不喜欢React，越写React却是渐渐地喜欢上React了，这个时候又回到了初期觉得舒心的Vue。
 #### 三个月之前： Vue好优雅，React好乱；三个月之后：Vue好优雅，React好清晰而且有安全感啊。
 
+
+### 明白的事情
+
+#### 1.vue之前的dispatch和broadcast已经被废弃。
+
 ### 出现的问题
 
 #### 1.first-official-doc中的4
@@ -27,7 +32,7 @@
 		<div>{{dataArray}}</div>
 ```
 
-#### 3.代码中的`v-for` 命名问题，命名规范
+#### 3.同一个元素绑定不同的事件,除了  @click="method1" @keyup="method1",是否有漂亮的方法
 
 #### 4.`Vue 2.0` 中过滤器已经被废弃，需要注意
 > http://blog.csdn.net/weiweismile123/article/details/70226319
@@ -42,7 +47,8 @@
 > 具体场景：在父组件点button，将父组件的input字符传给子组件。
 用法 ：child-componet ref="一个id名字" ,父组件 method:   this.$refs.id名字.子组件操作函数
 
-
+#### 8.不要视图在子组件里面修改传入的父组件props!!!!!最后出现的问题表象是：能够点开第一次，第二次就会失败
+> [Vue warn]: Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value. Prop being mutated: "show"
 ### 麻烦的地方
 有些原生的ES6被麻烦化了
 

@@ -11,7 +11,7 @@
     <span>本体里面的filter是这样写的，问题在于子组件的computed很有问题！</span>
     <br>
     <label for="search">搜索:</label>
-    <input type="text" v-model="key">
+    <input type="text" id="search" v-model="key">
     <span> {{key}} </span>
     <ul>
       <li v-for="item in getFilter"> {{ item }} </li>
@@ -20,10 +20,14 @@
     <child-component></child-component>
   </div>
   <template id="child">
-    <div> {{key}} </div>
-    <span>list</span>
-    <ul>
-    </ul>
+    <div>
+      <label for="search2">子组件的search</label>
+      <input type="text" id="search2" v-model="key">
+      <span> 子组件的key: {{key}} </span>
+      <ul>
+        <li v-for="item in getFilter"> {{item}} </li>
+      </ul>
+    </div>
   </template>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -33,8 +37,15 @@
     template: '#child',
     data: function(){
       return {
-        key:'haha',
-        list: '123s'
+        key:'',
+        list: ['123s','23jlsjf','fslfjsljf','hhsfl','apple']
+      }
+    },
+    computed: {
+      getFilter: function(){
+        return this.list.filter((item) => {
+          return item.indexOf(this.key) !== -1;
+        })
       }
     }
   })

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div>slfj</div>
+    <span>这里是我的子组件传给我的数据： {{message}} </span>
+    <child-component></child-component>
+  </div>
+
+  <template id="child">
+    <div class="child">
+      <h2>我是子组件</h2>
+      <span>测试数据: {{msg}} </span>
+      <input type="text" v-model="msg">
+      <button @click="send">传给父组件的开关.</button>
+      <button @click="test">事件对比和测试。</button>
+    </div>
+  </template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+  Vue.component('child-component',{
+    template: "#child",
+    data: function(){
+      return {
+        msg: "123",
+      }
+    },
+    methods: {
+      send() {
+        console.log("123");
+        if(this.msg.trim()){
+          this.$dispatch('middleman',this.msg);
+        }
+      },
+      test: function(){
+        console.log("I'm just test!");
+      }
+    }
+  });
+  let app = new Vue({
+    el: "#app",
+    data: {
+     message: ""
+    },
+    events: {
+      'middleman': function(msg){
+        this.message = msg;
+      }
+    }
+  })
+</script>
+</html>

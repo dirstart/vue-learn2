@@ -14,7 +14,7 @@
   <div id="app">
     <div class="parent-content">
       <h2>我是父组件</h2>
-      <input type="text" v-model="msg">
+      <input type="text" v-model="msg" @keyup.13="Add(msg)">
       <button @click="Add(msg)">传递事件给子组件</button>
     </div>
     <child-component ref="xxx"></child-component>
@@ -54,6 +54,7 @@
     methods: {
       Add(str) {
         this.$refs.xxx.Add(str);
+        this.msg = "";
       }
     }
   })

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    .dialog-active{
+      display: none;
+    }
+    .dialog-info{
+      background-color: #0090d3;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <modal-dialog :show="show" :class="dialogClass">
+      <header class="dialog-header" slot="header">
+        <h1>提示信息</h1>
+      </header>
+      <div class="dialog-body" slot="body">
+        <p>这里显示信息.</p>
+      </div>
+    </modal-dialog>
+
+    <div class="btn-group">
+      <button class="btn-info" @click="openDialog('dialog-info')">提示信息对话框</button>
+      <button class="btn-success">提示成功对话框</button>
+    </div>
+  </div>
+
+  <template id="dialog-template">
+    <div class="dialog-wrap">
+      <div class="dialog" :class=" {'dialog-active':show} ">
+        <button @click="close">关闭</button>
+        <slot name="header"></slot>
+        <slot name="body"></slot>
+      </div>
+    </div>
+  </template>
+</body>
+<script src="./vue.js"></script>
+<script type="text/javascript">
+Vue.component('modal-dialog',{
+  template:"#dialog-template",
+  props: ["show"],
+  methods: {
+    close(){
+      this.show = true
+    }
+  }
+})
+new Vue({
+  el: "#app",
+  data: {
+    show: true,
+    dialogClass: 'dialog-info'
+  },
+  methods: {
+    openDialog(type){
+      this.show = false
+      this.dialogClass = type
+    }
+  }
+})
+</script>
+</html>

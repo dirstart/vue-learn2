@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div id="app">
+    <parent></parent>
+  </div>
+
+  <template id="parent">
+    <div class="all">
+      <button @click="show">测试</button>
+      <child ref="one"></child>
+      <button @click="show2">显示子组件的数据.</button>
+    </div>
+  </template>
+
+  <template id="child">
+      <div>
+        <span>1aa</span>
+      </div>
+  </template>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+  Vue.component('parent',{
+    template: "#parent",
+    components: {
+      "child":{
+        template:"#child",
+        data() {
+          return {
+            msg: "我是子组件的数据！"
+          }
+        }
+      }
+    },
+    methods: {
+      show(){
+        console.log("test");
+      },
+      show2(){
+        console.log(this.$refs.one.msg);
+      }
+    }
+  })
+  let app = new Vue({
+    el: "#app"
+  })
+</script>
+</html>

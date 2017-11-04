@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    .dialog-active{
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <dialog-component :show="show">
+      <header class="dialog-header" slot="header">
+        <h1 class="dialog-title">提示信息</h1>
+      </header>
+      <div class="dialog-body" slot="body">
+        <p>在对话框放内容</p>
+        <p>欢迎来到弹框！</p>
+      </div>
+    </dialog-component>
+    <button @click="change">是否显示dialog</button>
+  </div>
+  <template id="dialog-component">
+    <div class="dialog-wrap">
+      <span> {{show}} </span>
+      <div class="dialog" :class="{ 'dialog-active': show }">
+        <slot name="header"></slot>
+        <slot name="body"></slot>
+      </div>
+    </div>
+  </template>
+</body>
+<script src="./vue.js"></script>
+<script type="text/javascript">
+  Vue.component('dialog-component',{
+    template:"#dialog-component",
+    props: ['show']
+  })
+  let app=new Vue({
+    el:'#app',
+    data:{
+      msg: "aa",
+      show: false
+    },
+    methods: {
+      change(){
+        this.isShow = !this.isShow
+      }
+    }
+  })
+</script>
+</html>
